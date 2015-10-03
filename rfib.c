@@ -16,6 +16,8 @@ int fib(int n){
     a = fib;
     fib = t;
   }
+
+  return fib;
 }
 #endif
 
