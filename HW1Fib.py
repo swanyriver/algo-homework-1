@@ -18,6 +18,21 @@ def iFib(n):
 
     return fib
 
-print [0,1,1,2,3,5,8,13,21]
-print [rFib(n) for n in range(9)]
-print [iFib(n) for n in range(9)]
+nset = [5, 10, 15, 20, 30, 50, 100,1000, 2000, 5000, 10000]
+
+
+from time import clock
+def timefunc(func,arg):
+    startTime = clock()
+    func(arg)
+    return clock()-startTime
+
+#recurstimes = [timefunc(rFib,n) for n in nset]
+#itertimes = [timefunc(iFib,n) for n in nset]
+recurstimes, itertimes = [] ,[]
+
+for n in nset:
+    recurstimes.append(timefunc(rFib,n))
+    itertimes.append(timefunc(iFib,n))
+    print n," -> r:",recurstimes
+    print n," -> i:",itertimes
