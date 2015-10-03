@@ -27,12 +27,13 @@ def timefunc(func,arg):
     func(arg)
     return clock()-startTime
 
-#recurstimes = [timefunc(rFib,n) for n in nset]
-#itertimes = [timefunc(iFib,n) for n in nset]
-recurstimes, itertimes = [] ,[]
+itertimes = [timefunc(iFib,n) for n in nset]
+print itertimes
+recurstimes = [timefunc(rFib,n) for n in nset[:6]]
+print recurstimes
 
-for n in nset:
-    recurstimes.append(timefunc(rFib,n))
-    itertimes.append(timefunc(iFib,n))
-    print n," -> r:",recurstimes
-    print n," -> i:",itertimes
+# for n in nset:
+#     recurstimes.append(timefunc(rFib,n))
+#     itertimes.append(timefunc(iFib,n))
+#     print n," -> r:",recurstimes
+#     print n," -> i:",itertimes
