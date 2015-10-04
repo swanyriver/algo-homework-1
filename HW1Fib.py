@@ -25,12 +25,15 @@ from time import clock
 def timefunc(func,arg):
     startTime = clock()
     func(arg)
-    return clock()-startTime
+    return round(clock()-startTime,3)
 
 itertimes = [timefunc(iFib,n) for n in nset]
 print itertimes
-recurstimes = [timefunc(rFib,n) for n in nset[:6]]
-print recurstimes
+#recurstimes = [timefunc(rFib,n) for n in nset[:6]]
+#print recurstimes
+
+for i in xrange(1000):
+    print "recursfib:%d, time%f"%(i,timefunc(rFib,i))
 
 # for n in nset:
 #     recurstimes.append(timefunc(rFib,n))
