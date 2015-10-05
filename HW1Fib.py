@@ -18,25 +18,41 @@ def iFib(n):
 
     return fib
 
-nset = [5, 10, 15, 20, 30, 50, 100,1000, 2000, 5000, 10000]
+def iFib2(n):
+    fib = 0
+    prev = 1
+
+    for x in xrange(n):
+        prev,fib = fib,fib+prev
+
+    return fib
+
+nset = [10, 15, 20, 30, 50, 100,1000, 2000, 5000, 10000]
 
 
 from time import clock
-def timefunc(func,arg):
+def timefunc(func,arg,t):
     startTime = clock()
-    func(arg)
-    return round(clock()-startTime,3)
+    for x in xrange(t):func(arg)
+    return round(clock()-startTime,5)
 
-itertimes = [timefunc(iFib,n) for n in nset]
-print itertimes
+#itertimes = [timefunc(iFib,n) for n in nset]
+#print itertimes
 #recurstimes = [timefunc(rFib,n) for n in nset[:6]]
 #print recurstimes
 
-for i in xrange(1000):
-    print "recursfib:%d, time%f"%(i,timefunc(rFib,i))
+# for i in xrange(1000):
+#     print "recursfib:%d, time%f"%(i,timefunc(rFib,i))
 
 # for n in nset:
 #     recurstimes.append(timefunc(rFib,n))
 #     itertimes.append(timefunc(iFib,n))
 #     print n," -> r:",recurstimes
 #     print n," -> i:",itertimes
+
+print "n,Time"
+for n in range(10,50):
+#for n in nset:
+    print n, "," ,timefunc(rFib,n,1)
+
+
